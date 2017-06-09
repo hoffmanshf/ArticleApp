@@ -1,28 +1,33 @@
 const express = require('express');
 const app = express();
 const path = require('path');
+const mongoose = require('mongoose');
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
+
+mongoose.connect('mongodb://localhost/articleapp');
+let db = mongoose.connection;
+
 
 app.get('/', function (req, res) {
   let articles = [
     {
       id:1,
       title:'Article One',
-      author:"B Adam1",
+      author:"Author One",
       body:"test body1"
     },
     {
       id:2,
       title:'Article Two',
-      author:"B Adam2",
+      author:"Author Two",
       body:"test body2"
     },
     {
       id:3,
       title:'Article Three',
-      author:"B Adam3",
+      author:"Author Three",
       body:"test body3"
     }
   ];
