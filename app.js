@@ -36,10 +36,17 @@ app.get('/', function(req, res){
   });
 });
 
+// Add Route
 app.get('/articles/add', function(req, res){
   res.render('add_article', {
     title:'Add Article'
   });
+});
+
+// Add Submit POST Route
+app.post('/articles/add', function(req, res){
+  console.log('Submitted');
+  return;
 });
 
 app.listen(3000, function () {
